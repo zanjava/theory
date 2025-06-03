@@ -250,6 +250,8 @@ func CalcDifficulty(config *params.ChainConfig, time uint64, parent *types.Heade
 
 target=2**256/difficulty
 
+nonce : nonce <=target
+
 ###### 工作量证明，矿工如何获得收益？
 
 在以太坊启动的参数中有一个专门设置收益地址的参数，叫做`miner.etherbase`。
@@ -516,8 +518,6 @@ return &ExecutionResult{
 }, nil
 }
 ```
-
-
 
 执行交易之后，交易所消耗的Gas都会先乘以一个GasPrice系数，然后添加到Header的Coinbase地址的余额。
 
